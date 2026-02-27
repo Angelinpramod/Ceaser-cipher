@@ -120,13 +120,12 @@ python3 main.py --mode decrypt --shift 13 --text "Uryyb, Jbeyq!"
 ---
 
 ## File Structure
-
 ```
 caesar-cipher/
 ├── main.py       # entire tool lives here
+├── cipher.txt    # example ciphertext file
 └── README.md
 ```
-
 ---
 
 ## Author
