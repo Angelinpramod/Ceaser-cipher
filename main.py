@@ -2,29 +2,16 @@
 import argparse
 dic={0:'A',1:'B',2:'C',3:'D',4:'E',5:'F',6:'G',7:'H',8:'I',9:'J',10:'K',11:'L',12:'M',13:'N',14:'O',15:'P',16:'Q',17:'R',18:'S',19:'T',20:'U',21:'V',22:'W',23:'X',24:'Y',25:'Z'}
 
-def encrypt(text, shift):
+def caesar(text, shift, mode):
+    if mode == 'decrypt':
+        shift = -shift
+    
     cipher = ""
     for i in text:
         if i.isalpha():
             for j in dic:
                 if i.upper() == dic[j]:
                     pos = (j + shift) % 26
-                    if i.islower():
-                        cipher += dic[pos].lower()
-                    else:
-                        cipher += dic[pos]
-        else:
-            cipher += i
-    return cipher
-
-
-def decrypt(text, shift):
-    cipher = ""
-    for i in text:
-        if i.isalpha():
-            for j in dic:
-                if i.upper() == dic[j]:
-                    pos = (j - shift) % 26
                     if i.islower():
                         cipher += dic[pos].lower()
                     else:
@@ -52,12 +39,12 @@ def main():
             print(f"Error: File '{file}' not found.")
             return
     if args.mode == "encrypt":
-        print("Encrypted text:", encrypt(text, shift))
+        print("Encrypted text:", caesar(text, shift, 'encrypt'))
     elif args.mode == "decrypt":
-        print("Decrypted text:", decrypt(text, shift))
+        print("Decrypted text:", caesar(text, shift, 'decrypt'))
     elif args.mode == "bruteforce":
         for shift in range(1, 26):
-            print(f"Shift {shift}: {decrypt(text, shift)}")
+            print(f"Shift {shift}: {caesar(text, shift, 'decrypt')}")
 
 
 
