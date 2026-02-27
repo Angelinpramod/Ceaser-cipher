@@ -126,8 +126,3 @@ caesar-cipher/
 ├── cipher.txt    # example ciphertext file
 └── README.md
 ```
----
-
-## Author
-
-Built from scratch as a learning project — every line understood, nothing copy-pasted.
